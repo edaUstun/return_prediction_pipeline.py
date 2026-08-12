@@ -5,10 +5,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 
-# =====================================================================
-# STEP 1: DATA CLEANING & PREPROCESSING (WEEK 9 MILESTONE)
-# =====================================================================
-print("💡 Step 1: Loading and preprocessing Amazon logistics dataset...")
+STEP 1: DATA CLEANING & PREPROCESSING 
+
+print("Step 1: Loading and preprocessing Amazon logistics dataset...")
 
 np.random.seed(42)
 n_samples = 5000
@@ -48,18 +47,14 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# =====================================================================
-# STEP 2: BASELINE MODEL TRAINING (LOGISTIC REGRESSION)
-# =====================================================================
-print("🤖 Step 2: Training baseline Logistic Regression model...")
+# STEP 2: BASELINE MODEL TRAINING 
+print("Step 2: Training baseline Logistic Regression model...")
 
 model = LogisticRegression(random_state=42, class_weight='balanced')
 model.fit(X_train_scaled, y_train)
 
-# =====================================================================
 # STEP 3: MODEL EVALUATION & DIAGNOSTICS
-# =====================================================================
-print("\n📊 Step 3: Evaluating Model Performance (Week 9 Results):")
+print("\nStep 3: Evaluating Model Performance (Week 9 Results):")
 
 y_pred = model.predict(X_test_scaled)
 y_pred_proba = model.predict_proba(X_test_scaled)[:, 1]
